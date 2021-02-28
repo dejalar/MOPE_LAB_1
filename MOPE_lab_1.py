@@ -12,7 +12,7 @@ y = []
 xn1 = []
 xn2 = []
 xn3 = []
-var315 = []
+var319 = []
 
 for i in range(8):
     x1.append(random.randint(1,20))
@@ -28,6 +28,7 @@ x03= (max(x3)+min(x3))/2
 dx1 = x01 - min(x1)
 dx2 = x02 - min(x2)
 dx3 = x03 - min(x3)
+Yet = a0+a1*x01+a2*x02+a3*x03
 
 for i in range(8):
     xn1.append((x1[i]-x01)/dx1)
@@ -35,11 +36,11 @@ for i in range(8):
     xn3.append((x3[i] - x03) / dx3)
 
 for i in y:
-    if i < numpy.mean(y):
-        var315.append(i)
+    if i > Yet:
+        var319.append(i)
 
 
-ind = y.index(max(var315))
+ind = y.index(min(var319))
 
 print("a0=%s a1=%s a2=%s a3=%s"%(a0, a1, a2, a3))
 print("X1: %s"%x1)
@@ -51,8 +52,8 @@ print("dx: %s %s %s"%(dx1, dx2, dx3))
 print("Xн1: %s"%xn1)
 print("Xн2: %s"%xn2)
 print("Xн3: %s"%xn3)
-print("mean y: %s"%numpy.mean(y))
-print("→ Y ,де Y - середнє Y: x1 = %s, x2 = %s, x3 = %s"%(x1[ind],x2[ind],x3[ind]))
+print("y еталонний: %s"%Yet)
+print("Yэт←: x1 = %s, x2 = %s, x3 = %s"%(x1[ind],x2[ind],x3[ind]))
 
 
 
